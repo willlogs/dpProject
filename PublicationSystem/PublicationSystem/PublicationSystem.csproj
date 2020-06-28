@@ -43,8 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EconomicalBuilder.cs" />
+    <Compile Include="EconomicalPublication.cs" />
+    <Compile Include="ICommandExecuter.cs" />
+    <Compile Include="PoliticalBuilder.cs" />
+    <Compile Include="PoliticalPublication.cs" />
+    <Compile Include="UpperCaseStyle.cs" />
+    <Compile Include="QuestionStyle.cs" />
+    <Compile Include="StarStyle.cs" />
+    <Compile Include="StylishPrinter.cs" />
+    <Compile Include="PrintingCommandExecuter.cs" />
+    <Compile Include="PrintingStyle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publication.cs" />
+    <Compile Include="PublicationBuilder.cs" />
+    <Compile Include="PublicationCommandExecuter.cs" />
+    <Compile Include="PublicationProvider.cs" />
+    <Compile Include="SportBuilder.cs" />
+    <Compile Include="SportPublication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
