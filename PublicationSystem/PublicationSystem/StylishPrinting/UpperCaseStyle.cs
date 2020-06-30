@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PublicationSystem
+namespace PublicationSystem.StylishPrinting
 {
-    public class StarStyle : PrintingStyle
+    public class UpperCaseStyle : PrintingStyle
     {
-        public override string CommandSuffix => "Star";
+        public override string CommandSuffix => "Upper";
 
         public override string Stylize(string message)
         {
-            return "*" + message;
+            return message.ToUpper();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PublicationSystem
+namespace PublicationSystem.CommandProcessing
 {
     public class CommandProcessor
     {
