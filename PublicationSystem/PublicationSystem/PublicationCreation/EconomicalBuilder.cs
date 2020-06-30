@@ -8,13 +8,17 @@ namespace PublicationSystem
 {
     public class EconomicalBuilder : PublicationBuilder
     {
+        private const string EconomicalModel = "Economical";
+
         public override Publication GetPublication()
         {
             Publication publication = EconomicalPublication.Instance;
-            publication.Name = "Economical";
+            publication.Name = EconomicalModel;
             publication.HeadName = "Masoumi";
             publication.RegisterationNumber = 7;
             return publication;
         }
+
+        public override string PublicationCommandName => EconomicalModel.ToLower();
     }
 }

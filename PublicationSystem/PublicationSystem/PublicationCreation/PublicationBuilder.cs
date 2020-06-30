@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PublicationSystem
 {
-    public abstract class PrintingStyle
+    public abstract class PublicationBuilder
     {
-        public abstract string Stylize(string message);
-        public abstract string CommandSuffix { get; }
+        public abstract Publication GetPublication();
+        public abstract string PublicationCommandName { get; }
     }
 }
