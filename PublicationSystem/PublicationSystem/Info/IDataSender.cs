@@ -8,6 +8,7 @@ namespace PublicationSystem.Info
 {
     interface IDataSender
     {
-        void SendInfo(PersonalInformation info);
+        CodedPersonalInfo EncryptInfo(PersonalInformation info);
+        PersonalInformation DecryptInfo(CodedPersonalInfo info);
     }
 }

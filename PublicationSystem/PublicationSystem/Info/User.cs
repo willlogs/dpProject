@@ -9,5 +9,8 @@ namespace PublicationSystem.Info
     class User
     {
         private int id;
+        private PersonalInformation info;
+
+
     }
 }

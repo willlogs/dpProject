@@ -17,7 +17,13 @@ namespace PublicationSystem
         }
 
         public delegate void commandProcessorEventHandler(string command, string[] args);
-        public event commandProcessorEventHandler OnSubscribeCommand, OnCreatePublicationCommand;
+        public event commandProcessorEventHandler 
+            OnSubscribeCommand,
+            OnCreatePublicationCommand,
+            OnStyleCommand,
+            OnCharacterCommand,
+            OnStateCommand
+        ;
 
         public void ParseCommand(string c)
         {

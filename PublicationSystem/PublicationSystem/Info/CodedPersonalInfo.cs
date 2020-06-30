@@ -8,7 +8,6 @@ namespace PublicationSystem.Info
 {
     class CodedPersonalInfo
     {
-        private int id;
-        private string name;
+        public string info;
     }
 }
