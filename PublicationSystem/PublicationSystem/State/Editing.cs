@@ -6,21 +6,29 @@ using System.Threading.Tasks;
 
 namespace PublicationSystem.State
 {
-    class Editing : IPublicationState
+    class Editing : PublicationState
     {
-        public bool Execute(string comand, string[] args, Publication publication)
+        public Editing()
+        {
+            allowedCommands = new string[] { 
+                "/getEditingProgress",
+                "/startPrinting"
+            };
+        }
+
+        public override bool Execute(string comand, string[] args, Publication publication)
         {
             throw new NotImplementedException();
+        }
+
+        public override PublicationState Next()
+        {
+            return new Printing();
         }
 
         public string PrintProgress()
         {
             return "print progress called";
-        }
-
-        public void SwitchToPrinting()
-        {
-            throw new NotImplementedException();
         }
     }
 }

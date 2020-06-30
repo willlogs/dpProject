@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PublicationSystem
 {
-    class CommandProcessor
+    public class CommandProcessor
     {
         private static CommandProcessor instance;
 
@@ -19,19 +19,19 @@ namespace PublicationSystem
         public delegate void commandProcessorEventHandler(string command, string[] args);
         public event commandProcessorEventHandler OnSubscribeCommand, OnCreatePublicationCommand;
 
-        public void AddExecuter(ICommandExecuter executer)
-        {
-
-        }
-
-        public void RemoveExecuter(ICommandExecuter executer)
-        {
-
-        }
-
         public void ParseCommand(string c)
         {
+            char[] characters = c.ToCharArray();
+            if (characters[0] != '/') 
+            {
+                WrongCommand();
+            }
+        }
 
+        public void WrongCommand()
+        {
+            Console.WriteLine("Wrong Command");
+            throw new Exception("Wrong Command");
         }
     }
 }

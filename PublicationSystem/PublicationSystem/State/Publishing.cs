@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace PublicationSystem.State
 {
-    class Publishing : IPublicationState
+    class Publishing : PublicationState
     {
-        public bool Execute(string comand, string[] args, Publication publication)
+        public override bool Execute(string comand, string[] args, Publication publication)
         {
             throw new NotImplementedException();
         }
 
-        public void Publish()
+        public override PublicationState Next()
         {
-            throw new NotImplementedException();
+            throw new Exception("No Next state after publish");
         }
     }
 }

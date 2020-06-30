@@ -43,11 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandProcessor.cs" />
+    <Compile Include="Delivery\Courier.cs" />
+    <Compile Include="Delivery\IDeliveryMethod.cs" />
+    <Compile Include="Delivery\Online.cs" />
+    <Compile Include="Delivery\Post.cs" />
     <Compile Include="EconomicalBuilder.cs" />
     <Compile Include="EconomicalPublication.cs" />
     <Compile Include="ICommandExecuter.cs" />
+    <Compile Include="Info\CodedPersonalInfo.cs" />
+    <Compile Include="Info\IDataSender.cs" />
+    <Compile Include="Info\PersonalInformation.cs" />
+    <Compile Include="Info\SubscriberInfo.cs" />
+    <Compile Include="Info\User.cs" />
+    <Compile Include="Info\UserDataSender.cs" />
     <Compile Include="PoliticalBuilder.cs" />
     <Compile Include="PoliticalPublication.cs" />
+    <Compile Include="State\Editing.cs" />
+    <Compile Include="State\IPublicationState.cs" />
+    <Compile Include="State\Printing.cs" />
+    <Compile Include="State\Publishing.cs" />
     <Compile Include="UpperCaseStyle.cs" />
     <Compile Include="QuestionStyle.cs" />
     <Compile Include="StarStyle.cs" />
