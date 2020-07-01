@@ -43,8 +43,7 @@ namespace PublicationSystem.CommandProcessing
                     {
                         return publication.Execute(command, args);
                     }
-                }
-               
+                }               
             }
 
             return false;

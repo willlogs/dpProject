@@ -9,6 +9,6 @@ namespace PublicationSystem.Info
     interface IDataSender
     {
         CodedPersonalInfo EncryptInfo(PersonalInformation info);
-        PersonalInformation DecryptInfo(CodedPersonalInfo info);
+        PersonalInformation GetInfoById(int id);
     }
 }

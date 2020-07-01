@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,22 +10,30 @@ namespace PublicationSystem.Info
 {
     class UserDataSender : IDataSender
     {
+        private static UserDataSender instance;
+        public static UserDataSender Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new UserDataSender();
+                }
+
+                return instance;
+            }
+        }
+
         CodedPersonalInfo codedInfo;
 
-        public PersonalInformation DecryptInfo(CodedPersonalInfo info)
+        public PersonalInformation GetInfoById(int id)
         {
-            PersonalInformation pi;
-
-            pi = JsonConvert.DeserializeObject<PersonalInformation>(info.info);
-
-            return pi;
+            return CodedPersonalInfo.ToPersonalInfo(CodedPersonalInfo.GetById(id));
         }
 
         public CodedPersonalInfo EncryptInfo(PersonalInformation info)
         {
-            CodedPersonalInfo ci = new CodedPersonalInfo();
-
-            ci.info = JsonConvert.SerializeObject(info);
+            CodedPersonalInfo ci = new CodedPersonalInfo(info);
 
             return ci;
         }
