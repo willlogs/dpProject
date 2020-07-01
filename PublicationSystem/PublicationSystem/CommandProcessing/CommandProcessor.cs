@@ -12,23 +12,46 @@ namespace PublicationSystem.CommandProcessing
 
         public static CommandProcessor Instance
         {
-            get;
-            set;
+            get 
+            {
+                if(instance == null)
+                {
+                    instance = new CommandProcessor();
+                }
+                return instance;
+            }
         }
 
-        public delegate void commandProcessorEventHandler(string command, string[] args);
-        public event commandProcessorEventHandler 
-            OnSubscribeCommand,
-            OnCreatePublicationCommand,
-            OnStyleCommand,
-            OnCharacterCommand,
-            OnStateCommand
-        ;
+        public Dictionary<string, ICommandExecuter> commandSubscribers;
+
+        public void Subscribe(string command, ICommandExecuter commandExecuter)
+        {
+            if (commandSubscribers.ContainsKey(command))
+            {
+                commandSubscribers[command] = commandExecuter;
+            }
+            else
+            {
+                commandSubscribers.Add(command, commandExecuter);
+            }
+        }
 
         public void ParseCommand(string c)
         {
             char[] characters = c.ToCharArray();
             if (characters[0] != '/') 
+            {
+                WrongCommand();
+            }
+
+            string[] args = c.Split(' ');
+            string command = args[0].Remove(0, 1);
+
+            if (commandSubscribers.ContainsKey(command))
+            {
+
+            }
+            else
             {
                 WrongCommand();
             }

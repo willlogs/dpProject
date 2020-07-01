@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandProcessing\CommandProcessor.cs" />
+    <Compile Include="CommandProcessing\CommandsList.cs" />
     <Compile Include="Delivery\Courier.cs" />
     <Compile Include="Delivery\IDeliveryMethod.cs" />
     <Compile Include="Delivery\Online.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="Info\IDataSender.cs" />
     <Compile Include="Info\PersonalInformation.cs" />
     <Compile Include="Info\SubscriberInfo.cs" />
-    <Compile Include="Info\User.cs" />
+    <Compile Include="Info\UserManager.cs" />
     <Compile Include="Info\UserDataSender.cs" />
     <Compile Include="PublicationCreation\PoliticalBuilder.cs" />
     <Compile Include="PublicationCreation\PoliticalPublication.cs" />
