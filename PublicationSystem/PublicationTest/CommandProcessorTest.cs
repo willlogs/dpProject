@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using PublicationSystem;
+using PublicationSystem.CommandProcessing;
 using System;
 
 namespace PublicationTest
