@@ -24,7 +24,7 @@ namespace PublicationSystem
             string message = "Name: " + Name + "\n";
             message += "Date: " + EstablishDate.ToString() + "\n";
             message += "Hashcode: " + GetHashCode().ToString() + "\n";
-            message += "Head: " + HeadName + "\n";
+            message += "Head: " + HeadName;
             return message;
         }
 
