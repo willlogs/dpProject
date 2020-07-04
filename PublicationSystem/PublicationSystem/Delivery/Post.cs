@@ -16,9 +16,9 @@ namespace PublicationSystem.Delivery
             set;
         }
 
-        public string SpecificMessage(string characterName)
+        public void SpecificMessage(int id)
         {
-            throw new NotImplementedException();
+            StylishPrinting.StylishPrinter.PrintLine("Post: Character " + id);
         }
     }
 }

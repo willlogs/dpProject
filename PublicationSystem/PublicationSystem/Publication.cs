@@ -13,7 +13,27 @@ namespace PublicationSystem
     {
         private PublicationState m_State = new Editing();
         private List<int> m_SubscriberIDs = new List<int>();
+        private Delivery.IDeliveryMethod deliveryMethod = new Delivery.Courier();
 
+        public Delivery.IDeliveryMethod PubDeliveryMethod
+        {
+            get
+            {
+                return deliveryMethod;
+            }
+
+            set
+            {
+                deliveryMethod = value;
+            }
+        }
+        public List<int> SubsIDs
+        {
+            get
+            {
+                return m_SubscriberIDs;
+            }
+        }
         public string Name { get; set; }
         public DateTime EstablishDate { get; set; }
         public int RegisterationNumber { get; set; }
