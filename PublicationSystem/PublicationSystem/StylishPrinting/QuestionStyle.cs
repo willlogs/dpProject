@@ -8,6 +8,7 @@ namespace PublicationSystem.StylishPrinting
 {
     public class QuestionStyle : PrintingStyle
     {
+        public static QuestionStyle Instance { get; } = new QuestionStyle();
         public override string CommandSuffix => "Q";
 
         public override string Stylize(string message)

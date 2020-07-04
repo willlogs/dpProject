@@ -27,8 +27,7 @@ namespace PublicationSystem
 
         private PublicationProvider()
         {
-            m_Instance = this;
-            m_Instance.m_Publications = new Dictionary<string, Publication>();
+            m_Publications = new Dictionary<string, Publication>();
         }
 
         public Publication CreatePublication(PublicationBuilder builder)
@@ -40,6 +39,7 @@ namespace PublicationSystem
             {
                 publication.EstablishDate = DateTime.Now;
                 m_Publications.Add(builder.PublicationCommandName, publication);
+                Console.WriteLine("Publication with model " + builder.PublicationCommandName + " has been created.");
             }
             else
             {
@@ -68,6 +68,11 @@ namespace PublicationSystem
             {
                 publicationPair.Value.PrintInfo();
             }
+        }
+
+        public void DestroyAllPublications()
+        {
+            m_Publications.Clear();
         }
     }
 }

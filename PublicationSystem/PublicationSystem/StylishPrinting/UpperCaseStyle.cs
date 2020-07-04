@@ -8,6 +8,7 @@ namespace PublicationSystem.StylishPrinting
 {
     public class UpperCaseStyle : PrintingStyle
     {
+        public static UpperCaseStyle Instance { get; } = new UpperCaseStyle();
         public override string CommandSuffix => "Upper";
 
         public override string Stylize(string message)
