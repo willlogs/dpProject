@@ -8,6 +8,14 @@ namespace PublicationSystem.State
 {
     class Printing : PublicationState
     {
+        public Printing()
+        {
+            allowedCommands = new string[] {
+                "",
+                ""
+            };
+        }
+
         public override bool Execute(string comand, string[] args, Publication publication)
         {
             throw new NotImplementedException();
