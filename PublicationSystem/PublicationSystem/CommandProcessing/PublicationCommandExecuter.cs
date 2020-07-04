@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublicationSystem.State;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -96,7 +97,19 @@ namespace PublicationSystem.CommandProcessing
             List<string> commands = new List<string>(2);
             commands.Add(PrintInfoCommand);
             commands.Add(CreateModelCommand);
+            AddStateCommands(commands, new Editing());
+            AddStateCommands(commands, new Printing());
+            AddStateCommands(commands, new Publishing());
             return commands;
+        }
+
+        private void AddStateCommands(List<string> commands, PublicationState state)
+        {
+            string[] stateCommands = state.GetCommandsList();
+            for(int i = 0; i < stateCommands.Length; i++)
+            {
+                commands.Add(stateCommands[i]);
+            }
         }
     }
 }
