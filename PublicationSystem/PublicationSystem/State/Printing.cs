@@ -11,14 +11,30 @@ namespace PublicationSystem.State
         public Printing()
         {
             allowedCommands = new string[] {
-                "",
-                ""
+                "getPrintingProgress",
+                "startPublishing"
             };
         }
 
         public override bool Execute(string comand, string[] args, Publication publication)
         {
-            throw new NotImplementedException();
+            if (comand == allowedCommands[0])
+            {
+                Random rnd = new Random();
+                StylishPrinting.StylishPrinter.PrintLine("" + rnd.Next(0, 101));
+            }
+            else
+            {
+                if (comand == allowedCommands[1])
+                {
+                    publication.SetState(Next());
+                }
+                else
+                {
+                    CommandProcessing.CommandProcessor.Instance.WrongCommand();
+                }
+            }
+            return true;
         }
 
         public override PublicationState Next()
