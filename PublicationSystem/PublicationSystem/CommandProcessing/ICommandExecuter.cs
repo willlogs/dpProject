@@ -12,5 +12,6 @@ namespace PublicationSystem.CommandProcessing
         /// Executes the command. Return true if command and arguments are valid, return false otherwise.
         /// </summary>
         bool Execute(string command, string[] args);
+        List<string> GetCommandList();
     }
 }

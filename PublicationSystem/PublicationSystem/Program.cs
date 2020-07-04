@@ -10,7 +10,11 @@ namespace PublicationSystem
     {
         static void Main(string[] args)
         {
-            
+            while (true)
+            {
+                string command = Console.ReadLine();
+                CommandProcessing.CommandProcessor.Instance.ParseCommand(command);
+            }
         }
     }
 }

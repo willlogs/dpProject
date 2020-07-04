@@ -8,6 +8,21 @@ namespace PublicationSystem.CommandProcessing
 {
     public class PublicationCommandExecuter : ICommandExecuter
     {
+        private static PublicationCommandExecuter instance;
+
+        public static PublicationCommandExecuter Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new PublicationCommandExecuter();
+                }
+
+                return instance;
+            }
+        }
+
         private const string PrintInfoCommand = "printInfo";
         private const string CreateModelCommand = "createModel";
 
