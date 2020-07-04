@@ -22,7 +22,7 @@ namespace PublicationSystem.CommandProcessing
             }
         }
 
-        public Dictionary<string, ICommandExecuter> commandSubscribers;
+        public Dictionary<string, ICommandExecuter> commandSubscribers = new Dictionary<string, ICommandExecuter>();
 
         public void Subscribe(string command, ICommandExecuter commandExecuter)
         {
@@ -44,12 +44,13 @@ namespace PublicationSystem.CommandProcessing
                 WrongCommand();
             }
 
-            string[] args = c.Split(' ');
+            List<string> args = new List<string>(c.Split(' '));
             string command = args[0].Remove(0, 1);
+            args.RemoveAt(0);
 
             if (commandSubscribers.ContainsKey(command))
             {
-
+                commandSubscribers[command].Execute(command, args.ToArray());
             }
             else
             {

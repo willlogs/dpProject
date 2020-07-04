@@ -10,7 +10,13 @@ namespace PublicationSystem
     {
         static void Main(string[] args)
         {
-            
+            var alaki = PublicationProvider.Instance;
+
+            while (true)
+            {
+                string command = Console.ReadLine();
+                CommandProcessing.CommandProcessor.Instance.ParseCommand(command);
+            }
         }
     }
 }

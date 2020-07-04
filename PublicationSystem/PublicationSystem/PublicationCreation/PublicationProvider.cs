@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublicationSystem.CommandProcessing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,9 @@ namespace PublicationSystem
 
         private PublicationProvider()
         {
+            m_Instance = this;
             m_Instance.m_Publications = new Dictionary<string, Publication>();
+            PublicationCommandExecuter.Instance.SubscribeToParser();
         }
 
         public Publication CreatePublication(PublicationBuilder builder)

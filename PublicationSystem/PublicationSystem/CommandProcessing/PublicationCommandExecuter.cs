@@ -8,10 +8,31 @@ namespace PublicationSystem.CommandProcessing
 {
     public class PublicationCommandExecuter : ICommandExecuter
     {
+        private static PublicationCommandExecuter instance;
+
+        public static PublicationCommandExecuter Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new PublicationCommandExecuter();
+                }
+
+                return instance;
+            }
+        }
+
         private const string PrintInfoCommand = "printInfo";
         private const string CreateModelCommand = "createModel";
 
         private List<PublicationBuilder> m_Builders = new List<PublicationBuilder>();
+
+        public void SubscribeToParser()
+        {
+            CommandProcessor.Instance.Subscribe(PrintInfoCommand, this);
+            CommandProcessor.Instance.Subscribe(CreateModelCommand, this);
+        }
 
         public void AddPublicationBuilder(PublicationBuilder builder)
         {
