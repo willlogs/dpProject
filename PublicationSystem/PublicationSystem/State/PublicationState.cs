@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublicationSystem.CommandProcessing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,13 @@ namespace PublicationSystem.State
     {
         protected string[] allowedCommands;
 
-        public abstract bool Execute(string comand, string[] args, Publication publication);
+        public abstract bool Execute(string command, string[] args, Publication publication);
+
+        public string[] GetCommandsList()
+        {
+            return allowedCommands;
+        }
+
         public abstract PublicationState Next();
     }
 }
