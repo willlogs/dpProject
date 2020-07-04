@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PublicationSystem
 {
-    public class Publication : ICommandExecuter
+    public class Publication
     {
         private PublicationState m_State = new Editing();
         private List<int> m_SubscriberIDs = new List<int>();
@@ -26,6 +26,11 @@ namespace PublicationSystem
             message += "Hashcode: " + GetHashCode().ToString() + "\n";
             message += "Head: " + HeadName;
             return message;
+        }
+
+        public void SetState(PublicationState newState)
+        {
+            m_State = newState;
         }
 
         public void PrintInfo()
