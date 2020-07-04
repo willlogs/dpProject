@@ -1,6 +1,7 @@
 ﻿using PublicationSystem.CommandProcessing;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,21 @@ namespace PublicationSystem.Info
     public class UserManager : ICommandExecuter
     {
         private string[] commands = new string[2] { "subscribe", "createCharacter"};
+
+        private static UserManager instance;
+
+        public static UserManager Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new UserManager();
+                }
+
+                return instance;
+            }
+        }
 
         public static PersonalInformation GetUserById(int id)
         {

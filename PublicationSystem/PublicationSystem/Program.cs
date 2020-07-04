@@ -1,4 +1,5 @@
 ﻿using PublicationSystem.CommandProcessing;
+using PublicationSystem.Info;
 using PublicationSystem.StylishPrinting;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,11 @@ namespace PublicationSystem
     {
         static void Main(string[] args)
         {
+            CommandProcessor cp = CommandProcessor.Instance;
 
-            CommandProcessor.Instance.Subscribe(PublicationCommandExecuter.Instance);
-            CommandProcessor.Instance.Subscribe(PrintingCommandExecuter.Instance);
+            cp.Subscribe(UserManager.Instance);
+            cp.Subscribe(PublicationCommandExecuter.Instance);
+            cp.Subscribe(PrintingCommandExecuter.Instance);
             PublicationCommandExecuter.Instance.AddPublicationBuilder(new SportBuilder());
             PublicationCommandExecuter.Instance.AddPublicationBuilder(new PoliticalBuilder());
             PublicationCommandExecuter.Instance.AddPublicationBuilder(new EconomicalBuilder());
@@ -25,7 +28,7 @@ namespace PublicationSystem
             while (true)
             {
                 string command = Console.ReadLine();
-                CommandProcessor.Instance.ParseCommand(command);
+                cp.ParseCommand(command);
             }
         }
     }
