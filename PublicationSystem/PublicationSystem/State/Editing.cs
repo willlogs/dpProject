@@ -18,7 +18,8 @@ namespace PublicationSystem.State
 
         public override bool Execute(string comand, string[] args, Publication publication)
         {
-            throw new NotImplementedException();
+
+            return true;
         }
 
         public override PublicationState Next()
