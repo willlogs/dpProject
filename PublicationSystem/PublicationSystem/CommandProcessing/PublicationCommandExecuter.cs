@@ -28,12 +28,6 @@ namespace PublicationSystem.CommandProcessing
 
         private List<PublicationBuilder> m_Builders = new List<PublicationBuilder>();
 
-        public void SubscribeToParser()
-        {
-            CommandProcessor.Instance.Subscribe(PrintInfoCommand, this);
-            CommandProcessor.Instance.Subscribe(CreateModelCommand, this);
-        }
-
         public void AddPublicationBuilder(PublicationBuilder builder)
         {
             m_Builders.Add(builder);

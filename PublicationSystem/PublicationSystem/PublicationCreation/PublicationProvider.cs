@@ -29,7 +29,6 @@ namespace PublicationSystem
         {
             m_Instance = this;
             m_Instance.m_Publications = new Dictionary<string, Publication>();
-            PublicationCommandExecuter.Instance.SubscribeToParser();
         }
 
         public Publication CreatePublication(PublicationBuilder builder)
