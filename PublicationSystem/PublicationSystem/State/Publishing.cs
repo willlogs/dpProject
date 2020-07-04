@@ -20,7 +20,7 @@ namespace PublicationSystem.State
         {
             if (comand == allowedCommands[0])
             {
-                Publish();
+                Publish(publication);
             }
             else
             {
@@ -35,9 +35,12 @@ namespace PublicationSystem.State
             throw new Exception("No Next state after publish");
         }
 
-        private void Publish()
+        private void Publish(Publication pub)
         {
-
+            foreach(int id in pub.SubsIDs)
+            {
+                pub.PubDeliveryMethod.SpecificMessage(id);
+            }
         }
     }
 }

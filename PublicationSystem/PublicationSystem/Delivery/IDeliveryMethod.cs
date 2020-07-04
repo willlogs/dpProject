@@ -8,6 +8,6 @@ namespace PublicationSystem.Delivery
 {
     public interface IDeliveryMethod
     {
-        string SpecificMessage(string characterName);
+        void SpecificMessage(int id);
     }
 }

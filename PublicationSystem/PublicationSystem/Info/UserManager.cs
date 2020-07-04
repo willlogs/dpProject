@@ -26,13 +26,13 @@ namespace PublicationSystem.Info
         {
             if(command == commands[0])
             {
-
+                PublicationProvider.Instance.GetPublication(args[0]).Subscribe(Convert.ToInt32(args[1]));
             }
             else
             {
                 if(command == commands[1])
                 {
-
+                    CreateUser(args[0], args[1], args[2], Convert.ToDateTime(args[3]));
                 }
                 else
                 {
