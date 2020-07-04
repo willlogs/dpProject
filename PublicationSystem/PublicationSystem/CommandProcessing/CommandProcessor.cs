@@ -24,7 +24,16 @@ namespace PublicationSystem.CommandProcessing
 
         public Dictionary<string, ICommandExecuter> commandSubscribers = new Dictionary<string, ICommandExecuter>();
 
-        public void Subscribe(string command, ICommandExecuter commandExecuter)
+        public void Subscribe(ICommandExecuter commandExecuter)
+        {
+            List<string> commands = commandExecuter.GetCommandList();
+            for(int i = 0; i < commands.Count; i++)
+            {
+                Subscribe(commands[i], commandExecuter);
+            }
+        }
+
+        private void Subscribe(string command, ICommandExecuter commandExecuter)
         {
             if (commandSubscribers.ContainsKey(command))
             {
@@ -39,29 +48,33 @@ namespace PublicationSystem.CommandProcessing
         public void ParseCommand(string c)
         {
             char[] characters = c.ToCharArray();
-            if (characters[0] != '/') 
+            if(characters != null && characters.Length > 0)
             {
-                WrongCommand();
-            }
+                if (characters[0] != '/')
+                {
+                    WrongCommand();
+                }
+                else
+                {
+                    List<string> args = new List<string>(c.Split(' '));
+                    string command = args[0].Remove(0, 1);
+                    args.RemoveAt(0);
 
-            List<string> args = new List<string>(c.Split(' '));
-            string command = args[0].Remove(0, 1);
-            args.RemoveAt(0);
-
-            if (commandSubscribers.ContainsKey(command))
-            {
-                commandSubscribers[command].Execute(command, args.ToArray());
-            }
-            else
-            {
-                WrongCommand();
+                    if (commandSubscribers.ContainsKey(command))
+                    {
+                        commandSubscribers[command].Execute(command, args.ToArray());
+                    }
+                    else
+                    {
+                        WrongCommand();
+                    }
+                }
             }
         }
 
         public void WrongCommand()
         {
             Console.WriteLine("Wrong Command");
-            throw new Exception("Wrong Command");
         }
     }
 }
