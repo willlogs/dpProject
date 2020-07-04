@@ -9,6 +9,22 @@ namespace PublicationSystem.CommandProcessing
 {
     public class PrintingCommandExecuter : ICommandExecuter
     {
+        private static PrintingCommandExecuter instance;
+
+        public static PrintingCommandExecuter Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new PrintingCommandExecuter();
+                }
+
+                return instance;
+            }
+        }
+
+
         private List<PrintingStyle> m_Styles = new List<PrintingStyle>();
 
         private const string AddCommand = "add";

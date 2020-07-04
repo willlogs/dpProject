@@ -12,11 +12,15 @@ namespace PublicationSystem
     {
         static void Main(string[] args)
         {
+
             CommandProcessor.Instance.Subscribe(PublicationCommandExecuter.Instance);
-            CommandProcessor.Instance.Subscribe(new PrintingCommandExecuter());
-            StylishPrinter.AddStyle(new StarStyle());   
-            StylishPrinter.AddStyle(new QuestionStyle());   
-            StylishPrinter.AddStyle(new UpperCaseStyle());   
+            CommandProcessor.Instance.Subscribe(PrintingCommandExecuter.Instance);
+            PublicationCommandExecuter.Instance.AddPublicationBuilder(new SportBuilder());
+            PublicationCommandExecuter.Instance.AddPublicationBuilder(new PoliticalBuilder());
+            PublicationCommandExecuter.Instance.AddPublicationBuilder(new EconomicalBuilder());
+            PrintingCommandExecuter.Instance.AddStyleCommand(new StarStyle());
+            PrintingCommandExecuter.Instance.AddStyleCommand(new QuestionStyle());
+            PrintingCommandExecuter.Instance.AddStyleCommand(new UpperCaseStyle());
 
             while (true)
             {
