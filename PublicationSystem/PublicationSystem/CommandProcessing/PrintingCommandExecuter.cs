@@ -58,5 +58,13 @@ namespace PublicationSystem.CommandProcessing
 
             return false;
         }
+
+        public List<string> GetCommandList()
+        {
+            List<string> commands = new List<string>(2);
+            commands.Add(AddCommand);
+            commands.Add(RemoveCommand);
+            return commands;
+        }
     }
 }
