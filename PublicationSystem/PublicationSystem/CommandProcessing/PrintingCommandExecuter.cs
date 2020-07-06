@@ -78,8 +78,11 @@ namespace PublicationSystem.CommandProcessing
         public List<string> GetCommandList()
         {
             List<string> commands = new List<string>(2);
-            commands.Add(AddCommand);
-            commands.Add(RemoveCommand);
+            for(int i = 0; i < m_Styles.Count; i++)
+            {
+                commands.Add(AddCommand + m_Styles[i].CommandSuffix);
+                commands.Add(RemoveCommand + m_Styles[i].CommandSuffix);
+            }
             return commands;
         }
     }
