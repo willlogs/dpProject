@@ -24,7 +24,14 @@ namespace PublicationSystem.StylishPrinting
         {
             for(int i = 0; i < m_Styles.Count; i++)
             {
-                message = m_Styles[i].Stylize(message);
+                string[] lines = message.Split('\n');
+                string[] newLines = new string[lines.Length];
+                int j = 0;
+                foreach(string s in lines)
+                {
+                    newLines[j++] = m_Styles[i].Stylize(s);
+                    message = string.Join("\n", newLines);
+                }
             }
 
             Console.Write(message);
@@ -34,7 +41,14 @@ namespace PublicationSystem.StylishPrinting
         {
             for (int i = 0; i < m_Styles.Count; i++)
             {
-                message = m_Styles[i].Stylize(message);
+                string[] lines = message.Split('\n');
+                string[] newLines = new string[lines.Length];
+                int j = 0;
+                foreach (string s in lines)
+                {
+                    newLines[j++] = m_Styles[i].Stylize(s);
+                    message = string.Join("\n", newLines);
+                }
             }
 
             Console.WriteLine(message);
