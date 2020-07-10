@@ -13,15 +13,19 @@ namespace PublicationSystem
     {
         static void Main(string[] args)
         {
+            //object creation
             CommandProcessor cp = CommandProcessor.Instance;
+            PrintingCommandExecuter.Instance.AddStyleCommand(new StarStyle());
+            PrintingCommandExecuter.Instance.AddStyleCommand(new QuestionStyle());
+            PrintingCommandExecuter.Instance.AddStyleCommand(new UpperCaseStyle());
+            PublicationCommandExecuter.Instance.AddPublicationBuilder(new SportBuilder());
+            PublicationCommandExecuter.Instance.AddPublicationBuilder(new PoliticalBuilder());
+            PublicationCommandExecuter.Instance.AddPublicationBuilder(new EconomicalBuilder());
 
+            //command subscription
             cp.Subscribe(UserManager.Instance);
             cp.Subscribe(PublicationCommandExecuter.Instance);
-            cp.Subscribe(new PrintingCommandExecuter());
-
-            StylishPrinter.AddStyle(new StarStyle());
-            StylishPrinter.AddStyle(new QuestionStyle());
-            StylishPrinter.AddStyle(new UpperCaseStyle());
+            cp.Subscribe(PrintingCommandExecuter.Instance);
 
             while (true)
             {

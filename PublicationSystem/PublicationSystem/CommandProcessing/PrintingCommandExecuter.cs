@@ -9,6 +9,22 @@ namespace PublicationSystem.CommandProcessing
 {
     public class PrintingCommandExecuter : ICommandExecuter
     {
+        private static PrintingCommandExecuter instance;
+
+        public static PrintingCommandExecuter Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new PrintingCommandExecuter();
+                }
+
+                return instance;
+            }
+        }
+
+
         private List<PrintingStyle> m_Styles = new List<PrintingStyle>();
 
         private const string AddCommand = "add";
@@ -62,8 +78,11 @@ namespace PublicationSystem.CommandProcessing
         public List<string> GetCommandList()
         {
             List<string> commands = new List<string>(2);
-            commands.Add(AddCommand);
-            commands.Add(RemoveCommand);
+            for(int i = 0; i < m_Styles.Count; i++)
+            {
+                commands.Add(AddCommand + m_Styles[i].CommandSuffix);
+                commands.Add(RemoveCommand + m_Styles[i].CommandSuffix);
+            }
             return commands;
         }
     }
