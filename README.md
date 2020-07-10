@@ -1,2 +1,1 @@
-# dpProject
-Design Pattern Projects 2020
+Thank you for readin me
