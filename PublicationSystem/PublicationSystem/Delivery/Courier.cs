@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublicationSystem.Info;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,16 @@ namespace PublicationSystem.Delivery
 {
     class Courier : IDeliveryMethod
     {
-        private static Courier instance;
-
-        public static Courier Instance
-        {
-            get;
-            set;
-        }
+        public static Courier Instance { get; private set; } = new Courier();
 
         public void SpecificMessage(int id)
         {
-            StylishPrinting.StylishPrinter.PrintLine("Courier: Character " + id);
+            DeliveryUtility.DeliveryPrint(id, "Courier");
+        }
+
+        public void SpecificMessage(PersonalInformation info, int id)
+        {
+            DeliveryUtility.DeliveryPrint(info, id, "Courier");
         }
     }
 }

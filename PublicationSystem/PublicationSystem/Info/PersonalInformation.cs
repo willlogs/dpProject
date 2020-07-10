@@ -11,28 +11,22 @@ namespace PublicationSystem.Info
     public class PersonalInformation
     {
         public string fName, lName, gender;
-        public int id = -1;
         public DateTime birthDate;
 
-        public PersonalInformation(string name, string lastName, string gender, DateTime birth, bool addToList = true)
+        public PersonalInformation(string name, string lastName, string gender, DateTime birth)
         {
             fName = name;
             lName = lastName;
             this.gender = gender;
             birthDate = birth;
-
-            if (addToList)
-            {
-                CodedPersonalInfo codedInfo = new CodedPersonalInfo(this);
-            }
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return String.Format(
                 "name: " + fName + " " + lName + "\n" +
                 "gender: " + gender + "\n" +
-                "id: " + id
+                "birth date: " + birthDate
             );
         }
     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PublicationSystem.Info
 {
-    interface IDataSender
+    public interface IUserProvider
     {
-        CodedPersonalInfo EncryptInfo(PersonalInformation info);
+        int CreateUser(PersonalInformation info);
         PersonalInformation GetInfoById(int id);
     }
 }
