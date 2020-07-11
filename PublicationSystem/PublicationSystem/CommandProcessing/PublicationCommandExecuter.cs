@@ -1,4 +1,5 @@
 ﻿using PublicationSystem.State;
+using PublicationSystem.StylishPrinting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +58,14 @@ namespace PublicationSystem.CommandProcessing
                     Publication publication = GetPublication(args[0]);
                     if (publication != null)
                     {
-                        return publication.Execute(command, args);
+                        //remove publication name from args
+                        string[] publicationArgs = new string[args.Length - 1];
+                        for(int i = 1; i < args.Length; i++)
+                        {
+                            publicationArgs[i - 1] = args[i];
+                        }
+
+                        return publication.Execute(command, publicationArgs);
                     }
                 }               
             }
@@ -87,7 +95,7 @@ namespace PublicationSystem.CommandProcessing
             }
             catch(Exception exception)
             {
-                Console.WriteLine(exception.Message);
+                StylishPrinter.PrintLine(exception.Message);
                 return null;
             }
         }

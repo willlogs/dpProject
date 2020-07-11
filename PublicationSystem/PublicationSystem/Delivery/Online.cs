@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PublicationSystem.Info;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,16 @@ namespace PublicationSystem.Delivery
 {
     class Online : IDeliveryMethod
     {
-        private static Online instance;
-
-        public static Online Instance
-        {
-            get;
-            set;
-        }
+        public static Online Instance { get; private set; } = new Online();
 
         public void SpecificMessage(int id)
         {
-            StylishPrinting.StylishPrinter.PrintLine("Online: Character " + id);
+            DeliveryUtility.DeliveryPrint(id, "Online");
+        }
+
+        public void SpecificMessage(PersonalInformation info, int id)
+        {
+            DeliveryUtility.DeliveryPrint(info, id, "Online");
         }
     }
 }

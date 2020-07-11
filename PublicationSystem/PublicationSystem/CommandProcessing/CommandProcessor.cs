@@ -74,7 +74,7 @@ namespace PublicationSystem.CommandProcessing
 
         public void WrongCommand()
         {
-            Console.WriteLine("Wrong Command");
+            StylishPrinting.StylishPrinter.PrintLine("Wrong Command");
         }
     }
 }

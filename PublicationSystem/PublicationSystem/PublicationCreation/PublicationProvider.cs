@@ -1,4 +1,5 @@
 ﻿using PublicationSystem.CommandProcessing;
+using PublicationSystem.StylishPrinting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,11 +40,11 @@ namespace PublicationSystem
             {
                 publication.EstablishDate = DateTime.Now;
                 m_Publications.Add(builder.PublicationCommandName, publication);
-                Console.WriteLine("Publication with model " + builder.PublicationCommandName + " has been created.");
+                StylishPrinter.PrintLine("Publication with model " + builder.PublicationCommandName + " has been created.");
             }
             else
             {
-                Console.WriteLine("The publication model " + builder.PublicationCommandName + " already exists! No more creation");
+                StylishPrinter.PrintLine("The publication model " + builder.PublicationCommandName + " already exists! No more creation");
             }
 
             return publication;

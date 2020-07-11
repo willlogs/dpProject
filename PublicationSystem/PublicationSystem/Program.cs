@@ -15,6 +15,7 @@ namespace PublicationSystem
         {
             //object creation
             CommandProcessor cp = CommandProcessor.Instance;
+            UserManager.Instance.UserProvider = new UserProvider();
             PrintingCommandExecuter.Instance.AddStyleCommand(new StarStyle());
             PrintingCommandExecuter.Instance.AddStyleCommand(new QuestionStyle());
             PrintingCommandExecuter.Instance.AddStyleCommand(new UpperCaseStyle());
@@ -27,6 +28,7 @@ namespace PublicationSystem
             cp.Subscribe(PublicationCommandExecuter.Instance);
             cp.Subscribe(PrintingCommandExecuter.Instance);
 
+            Console.WriteLine("Now: " + new DateTime(1998, 6, 5));
             while (true)
             {
                 string command = Console.ReadLine();
